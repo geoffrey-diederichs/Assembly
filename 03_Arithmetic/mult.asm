@@ -41,7 +41,7 @@ section .text
 	global _start
 
 _start:
-	; Asking for the numbers to add
+	; Asking for the numbers to multiply 	
 	print msg1, msg1_len
 	user_input num1, 2
 	print msg2, msg2_len
@@ -49,17 +49,17 @@ _start:
 
 	; Moving numbers to register
 	; Subtracting '0' to convert to decimal
-	mov rax, [num1]
-	mov rdi, [num2]
-	sub rax, '0'
-	sub rdi, '0'
+	mov al, [num1]
+	mov bl, [num2]
+	sub al, '0'
+	sub bl, '0'
 
-	; Adding the numbers
-	add rax, rdi
+	; Multiplying the numbers
+	mul bl
 	
 	; Adding '0' to convert to ascii
 	; Moving the result into res
-	add rax, '0'
+	add al, '0'
 	mov [res], rax
 
 	; Printing the result
